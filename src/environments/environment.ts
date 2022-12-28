@@ -13,8 +13,8 @@ export const environment = {
   ADMCXPAAPI001: 'http://intranet4.cecso.com.mx/ERPCECSO/ERPWEBA8/ADMINISTRATIVO/CXPA/Apis/ADMCXPAAPI001/',
   ERPGRALAPI001: 'http://intranet3.cecso.com.mx/ErpWebA8/Apis/Erp/Gral/ERPGRALAPI001M/', // API GENERAL ERP
   SERTRAFAPI001: 'http://intranet3.cecso.com.mx/ErpWebA8/Apis/Ser/traf/SERTRAFAPI001M/', // API TRAFICO
-  SERINFOAPI002: 'http://localhost:51197/',
-  //SERINFOAPI002: 'http://intranet4.cecso.com.mx/ERPCECSO/ERPWEBA8/SERVICIOS/SERINFOAPI002/',
+  //SERINFOAPI002: 'http://localhost:51197/',
+  SERINFOAPI002: 'http://intranet4.cecso.com.mx/ERPCECSO/ERPWEBA8/SERVICIOS/SERINFOAPI002/',
   AMDCCOBAPI001: 'http://intranet3.cecso.com.mx/ErpWebA8/Apis/adm/cxc/ADMCCOBAPI001/', // API CARTERA
   URL_INFORMATICA_INFERPAPI001: 'http://172.16.2.235/ERPWebApi2020/ApisInformatica/INFERPAPI001/api/', // API REGLAS DE NEGOCIO
   URL_API_ADMFCOAPI001: 'http://172.16.2.235/ERPWebApi2020/ApisFacturacion/ADMFCOAPI001/api/', // API FACTURACION
