@@ -1,0 +1,297 @@
+<div class="contenedor">
+    
+    <div class="contenido md-12">
+        <div class="md-12 cabecera">
+            
+            <div class="row">
+                
+              <div class="col ml-6 md-6">
+                <label style="margin-left: 30px; margin-top: 10px; font-size: 30px;">
+                    Directorio Telefónico
+                </label>
+              </div>
+                          
+              <div class="d-flex flex-row" style="margin-top: 8px; margin-right: 20px">
+                <div class="p-2">
+                    <label  style="margin-left: 20px;" *ngIf="isLoged == false">Clave:</label>
+                </div>
+                <div class="p-2">
+                    <input class="form-control" id="txtClav" type="text" name="clav" [(ngModel)]="CECSOuser" maxlength="6" *ngIf="isLoged == false" (keypress.enter)="logUser()" appOnlynumber>
+                </div>
+                <div class="p-2">
+                    <label *ngIf="isLoged == false">
+                        Contraseña
+                    </label>
+                    <label *ngIf="isLoged == true" style="font-size: 16px;">
+                        <i class="fa fa-user"> </i>   {{CECSOusername}}
+                    </label>
+                </div>
+                <div class="p-2">
+                    <input class="form-control" id="txtpass" type="password" name="pass" [(ngModel)]="CECSOpassword" maxlength="10" *ngIf="isLoged == false" (keypress.enter)="logUser()">
+                </div>
+                <div class="p-2">
+                    <button  class="btn btn-success" id="btnIniciar" (click)="logUser()" *ngIf="isLoged == false">
+                        Iniciar Sesión
+                    </button>
+                    <button  class="btn btn-danger" id="btnIniciar" (click)="logOut()" *ngIf="isLoged == true">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+       
+
+        <br>
+        <div id="Contenido" class="container-fluid">
+
+    <div class="row mx-auto">
+        <div class="col-12 col-sm-4 col-md-4 col-lg-3 col-xl-2"></div>
+        <div class="col-md-8">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <strong for="" class="text-left">Listado de usuarios</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Clave</label>
+                    <input class="form-control" id="txtNoEmpleado" type="text" name="noEmpleado" (keyup)="onKey($event)" [(ngModel)]="filtrosBusqueda.nousuario" maxlength="6" appOnlynumber> 
+                </div>
+                <div class="col-md-10">
+                    <label for="txtNombre" class="text-left" >Nombre: </label>
+                    <input class="form-control" id="txtNombre" type="text" name="nombre" (keyup)="onKey($event)" [(ngModel)]="filtrosBusqueda.nombre" maxlength="100"> 
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mt-2">
+                    <label for="txtDepartamento" class="text-left" >Departamento:</label>
+                    <input class="form-control" id="txtDepartamento" type="text" name="departamento" (keyup)="onKey($event)" [(ngModel)]="filtrosBusqueda.departamento" maxlength="100"> 
+                </div>
+                <div class="col-md-4 mt-2">
+                    
+                    <label for="txtlUGAR" class="text-left" >Lugar: </label>
+                    <select id=""class="form-control select-option" #Lugar type="text" name="Lugar"  maxlength="100" (change)="onOptionSelected($event)" [(ngModel)]="filtrosBusqueda.lugar">
+                        <option class="option" value="0" selected>Todos</option>
+                        <option *ngFor="let Lugar of lista" value="{{Lugar.id}}">{{Lugar.destino}}</option>
+                    </select>
+                </div>
+                <div class="col-md-4 mt-2">
+                    <label for="txtExtension" class="text-left" >Extension:</label>
+                    <input class="form-control" id="txtExtension" type="text" name="Extension" maxlength="100" (keyup)="onKey($event)" [(ngModel)]="filtrosBusqueda.extension" appOnlynumber> 
+                </div>
+                
+            </div>
+            
+            <div class="row">
+                
+            </div>
+            <div class="row">
+                <div class="col-md-2 mt-4">
+                    <button type="button" class="btn btn-info btn-md active btn-block" id="btnAgregar" (click)="listarUsuarios()"><i class="fas fa-search" ></i>
+                        Buscar
+                    </button>
+                </div> 
+                <div class="col-md-2 mt-4">
+                    <button type="button" class="btn btn-success btn-md active btn-block" id="btnAgregar" (click)="abrirReportes()"><i class="fas fa-print" ></i>
+                        Imprimir
+                    </button>
+                </div> 
+                <div class="col-md-2 mt-4">
+                    <button type="button" class="btn btn-secondary active btn-block" (click)="limpiar()">
+                        <i class="fas fa-trash fa-fw" ></i>
+                        Limpiar
+                    </button>
+                </div> 
+            </div>
+          
+        </div>
+<!-- GUIA DE MARCADO -->
+        <!-- <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <strong for="" class="text-left">Guia de Marcado</strong>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label for="ubicaci" class="text-left">Ubicación:</label>
+                    <select class="form-control" id="ubicaci" type="text" name="ubicaci"  maxlength="100" (change)="listarUbicacion()" [(ngModel)]="filtrosMarcado.ubicacion">
+                        <option *ngFor="let ubicacion of lista" value="{{ubicacion.id}}"> {{ubicacion.destino}} </option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 mt-2">
+                    <grid-cs #gridGuia  [rowsPerPage]="10" [(data)]="guiaSelect" [columnDefs]="columnDefs" [enablePagination]="true">
+                        </grid-cs>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    <div class="row">
+        <div class="md-12 cabecera">
+            
+        </div>
+        <div class="col-md-3 mt-1 mt-3 urls">
+            <a for="funcionesConmutador" class="text-left" href="http://intranet3.cecso.com.mx/ERPWEB2012/dirtel/guia.htm" target="_blank">Guia de Funciones Conmutador.</a>
+        </div>
+        <div class="col-md-3 mt-3 urls">
+            <a for="funcionesConmutador" class="text-left" href="http://intranet3.cecso.com.mx/ERPWEB2012/dirtel/COMPUTADORA.htm" target="_blank">Manual de uso GRANDSTREAM en PC.</a>
+        </div>
+        <!-- Botones de funcionalidad especial para usuarios conectados y para administradores -->
+        <div class="col-m3"> 
+            <div class="col-md-12 mr-8 mb-3" >
+                <button  class="btn btn-success float-md-right" id="btnAgregar" (click)="openModal(mdlAgregarModificar,1,$event)" *ngIf="hasPermition">
+                   <i class="fas fa-plus"></i>
+                    Agregar
+                </button>
+                
+            </div>
+        </div>
+        <div class="col-m3"> 
+            <div class="col-md-12 mr-8 mb-3" >
+                <button  class="btn btn-success float-md-right" id="btnAgregar" (click)="openModal(mdlAgregarModificar, 3, $event)" *ngIf="isLoged">
+                    <i class="fa fa-edit"></i>
+                    Editar Mi Perfil
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- GRID de usuarios -->
+    <div class="row">
+        <div class="col-md-12 mt-2">
+            <grid-cs #gridDir 
+                [rowsPerPage]="10"
+                [(data)]="usuarios"
+                [columnDefs]="columnDir"
+                [enablePagination]="true" 
+                >
+            </grid-cs>
+        </div>
+    </div>
+    
+</div>
+</div>
+<div class="Pie">
+    <div class="container">
+        <div class="row ">
+            <div class="col-xs-12 col-md-12 text-center ">
+                <small>CELULOSA Y CORRUGADOS DE SONORA / DIRECTORIO TELEFÓNICO</small>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- MODAL  -->
+<ng-template #mdlAgregarModificar let-modal id="mdlAgregarModificar" >
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title">
+            <i class="fa fa-user"></i> {{TituloModal}}
+        </h5>
+        <button type="button" class="btn-danger" data-bs-dismiss="modal" aria-label="Close"
+          (click)="closeModal()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row mx-auto">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-6 mb-3 mt-4">
+                        <strong for="" class="text-left">Datos</strong>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <label>Clave</label>
+                        <input class="form-control" #clave #clave="ngModel" id="txtclavemodal" type="text" pattern="[0-9]" name="clavemodal" maxlength="6" [(ngModel)]="DirectorioModel.SERINFODAT003_Clave" [disabled]="opModalEnable" appOnlynumber> 
+                       
+
+                    </div>
+                    <div class="col-md-6">
+                        <label for="txtNombremodal" class="text-left" >Nombre: </label>
+                        <input class="form-control" #nombremodal id="txtNombremodal" type="text" name="nombremodal" maxlength="100" [(ngModel)]="DirectorioModel.SERINFODAT003_NombreUsuario" [disabled]="opModalEnable"> 
+                        
+
+                    </div>
+                    <div class="col-md-3">
+                        <label>Extension</label>
+                        <input class="form-control" id="txtNoEmpleado" type="text" name="noEmpleado" maxlength="8" [(ngModel)]="DirectorioModel.SERINFODAT003_Extension" appOnlynumber> 
+                        
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mt-2">
+                        <label for="txtDepartamento" class="text-left" >Movil:</label>
+                        <input class="form-control" id="txtDepartamento" type="text" name="departamento" maxlength="12" [(ngModel)]="DirectorioModel.SERINFODAT003_Movil" appOnlynumber> 
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label for="txtlUGAR" class="text-left" >Casa: </label>
+
+                        <input class="form-control" id="txtDepartamento" type="text" name="departamento" maxlength="12" [(ngModel)]="DirectorioModel.SERINFODAT003_Casa" appOnlynumber> 
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6 mt-2">
+                        <label for="txtDepartamento" class="text-left" >Oficina:</label>
+                        <input class="form-control" id="txtDepartamento" type="text" name="departamento" maxlength="12" [(ngModel)]="DirectorioModel.SERINFODAT003_Oficina" appOnlynumber> 
+                    </div>
+                    <div class="col-md-6 mt-2">
+                        <label for="txtlUGAR" class="text-left" >Personalizado: </label>
+
+                        <input class="form-control" id="txtDepartamento" type="text" name="departamento" maxlength="12" [(ngModel)]="DirectorioModel.SERINFODAT003_Personalizado" appOnlynumber> 
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mt-2">
+                        <label for="txtDepartamento" class="text-left" >Correo:</label>
+                        <input class="form-control" id="txtDepartamento" type="text" name="departamento" maxlength="100" value="{{DirectorioModel.SERINFODAT003_Correo}}@cecso.com" disabled *ngIf="opModalEnable == true" >
+                        <input class="form-control" id="txtDepartamento" type="text" name="departamento" maxlength="100"  *ngIf="opModalEnable == false" [(ngModel)]="DirectorioModel.SERINFODAT003_Correo">
+                      
+                    </div>
+                    <div class="col-md-4 mt-2">
+                        <label for="txtDepartamentomodal" class="text-left" >Departamento: </label>
+                        <input class="form-control" id="txtDepartamentomodal" type="text" name="departamentomodal" maxlength="100" [(ngModel)]="DirectorioModel.SERINFODAT003_Departamento" [disabled]="opModalEnable" > 
+                        
+                    </div>
+                    <div class="col-md-4 mt-2">
+                        <label for="ubicacines" class="text-left" >Lugar: </label>
+                        <select class="form-control" id="ubicacines" type="text" name="ubicacines"  maxlength="100" [(ngModel)]="DirectorioModel.SERINFODAT003_IdLugar">
+                            <option *ngFor="let ubicacion of lista" value="{{ubicacion.id}}"> {{ubicacion.destino}} </option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12 mt-4">
+                        <div class="alert alert-warning" role="alert" *ngIf="Direct.lugar == '0' || Direct.departamento=='' || Direct.correo == '' || Direct.nombre=='' || Direct.clave == 0">
+                            Por favor llene los campos requeridos
+                          </div>
+                    </div>
+                    
+                </div>
+
+                </div>
+              
+            </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-success" data-bs-dismiss="modal"(click)="updateUser()">
+            {{BotonModal}} 
+          </button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </ng-template>
+
+    <!--  ng build --prod --base-href "intranet4.cecso.com.mx\ERPCECSO\ERPWEB2018\INFORMATICA\SERINFO002MW" -->

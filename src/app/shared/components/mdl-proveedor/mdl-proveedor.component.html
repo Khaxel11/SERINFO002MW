@@ -1,0 +1,60 @@
+<ng-template #mdlProveedor let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title">Busqueda Proveedor</h5>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+        aria-hidden="true"></i></button>
+  </div>
+
+
+  <div class="modal-body">
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="col-12">
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-3" style="display: none;" >
+                <input-camposobligatorios [Titulo]="'Clave'" [type]="'hidden'" [(Data)]="this.filtroProvSelect.codigo">
+                </input-camposobligatorios>
+              </div>
+              <div class="col-5">
+                <input-camposobligatorios [Titulo]="'Codigo/Nombre'" [type]="'text'"
+                  [(Data)]="this.filtroProvSelect.descripcion">
+                </input-camposobligatorios>
+              </div>
+              <div class="col-4">
+                <div class="row mt-4">
+                  <div class="col-6">
+                    <button type="button" id="btnBuscar" class="btn btn-primary " (click)="this.BuscarProveedores()">
+                      <i class="fas fa-search "> Buscar</i>
+                    </button>
+                  </div>
+                  <div class="col-6">
+                    <button type="button" id="btnCerrar" class="btn btn-danger " (click)="this.btnCerrar()">
+                      <i class="fas fa-times"> Cerrar</i>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="col-12">
+
+              <div class="row " id="divgridProveedores">
+                <div class="col-12 ">
+                  <grid-cs #gridProveedores [data]="Datos" [columnDefs]="columnDefs" [enablePagination]="false">
+                  </grid-cs>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</ng-template>

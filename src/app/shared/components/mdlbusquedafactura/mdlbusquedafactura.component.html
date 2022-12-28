@@ -1,0 +1,47 @@
+<ng-template #mdlBuscar let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title">Buscar Factura</h5>
+      <button type="button" class="close" aria-label="Close" (click)="closeModal()"><i class="fas fa-times"
+          aria-hidden="true"></i></button>
+    </div>
+
+    <div class="modal-body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Fecha Inicio</label>
+                    <input type="date" class="form-control"  [(ngModel)]='filtrosFactura.fechaInicio'>
+                </div>
+                <div class="col-md-6">
+                    <label>Fecha Fin</label>
+                    <input type="date" class="form-control" [(ngModel)]='filtrosFactura.fechaFin'>
+                </div>  
+            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <label>Folio/UUID</label>
+                    <input type="text" class="form-control" [(ngModel)]='filtrosFactura.uuid'>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <button  type="button" class="btn btn-secondary" (click)="listarFacturas()">
+                    <i class="fas fa-search fa-fw" style="margin-right: 5px;" ></i>
+                    Buscar
+                  </button>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <!-- <grid-ss #gridEjecutivo [serviceFunction]="factura.listarFacturas" [rowsPerPage]="10" [columnDefs]="columnDefs" [Filters]="filtrosFactura" [enablePagination]="true">
+                    </grid-ss> -->
+                    <grid-cs #gridFacturas [rowsPerPage]="10" [columnDefs]="columnDefs" [(data)]="datos"  [enablePagination]="true"></grid-cs>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        
+        <button type="button" class="btn btn-secondary" (click)="closeModal()"><i class="fas fa-times"></i> Cancelar</button>
+    </div>
+</ng-template>

@@ -1,0 +1,60 @@
+.contenedor {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecera {
+    background: #ffb240;
+    flex: 0.09;
+    color: white;
+    background-color: #ffb240;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.contenido {
+    flex: 1;
+}
+
+.Pie {
+    flex: 0;
+    background: #ffb240;
+    color: #fff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.vacios {
+    color: red;
+}
+
+.urls a {
+    text-decoration: underline;
+    color: rgb(9, 45, 204);
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+
+}
+.urls a:hover{
+    text-decoration:underline;
+    color:  #0e0d74;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+}
+

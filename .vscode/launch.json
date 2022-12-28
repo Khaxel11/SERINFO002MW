@@ -1,0 +1,156 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+  
+  
+
+    {
+      "name": "Launch Edge",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "type": "firefox",
+      "request": "launch",
+      "reAttach": true,
+      "name": "Iniciar localhost",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Abrir Articulos Prospectos",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/articulosprospectos/fcavent019cw?pUsuario=000100&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Representantes",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/representantes/fcavent006cw?pUsuario=001000&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Abrir Clientes Representantes",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/clientesrepresentantes/fcavent008mw?pUsuario=001000&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Abrir Tipos Solicitud",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/tipossolicitud/fcavent025cw?pUsuario=001000&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Abrir Solicitud Multiple",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/capturasolicitudmultiple/fcavent012mw?pUsuario=001000&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Articulos",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/articulos/fcavent023cw?pUsuario=001000&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Reporte Articulos",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/reportearticulos/fcavent002rw?pUsuario=001000&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Seg Sol",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/segsolicitudmultiple/fcavent058mw?pUsuario=011236&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Pedidos Repre",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:64935/auth/pedidos/fcavent013mw?pUsuario=012996&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Pedidos Ejecutivo",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:64935/auth/pedidos/fcavent013mw?pUsuario=011705&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Acciones OP",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:49558/auth/acciones/fcavent023mw?pUsuario=000153&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Estatus OP Ventas",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:49558/auth/estatusop/fcavent025mw?pUsuario=000153&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Estatus OP Costos",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:49558/auth/estatusop/fcavent025mw?pUsuario=000050&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    },
+    {
+      "name": "Estatus OP Cartera",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:49558/auth/estatusop/fcavent025mw?pUsuario=012810&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    }
+    ,
+    {
+      "name": "Tipos mov",
+      "request": "launch",
+      "type": "pwa-msedge",
+      "url": "http://localhost:4200/auth/admcxpa001mw/admcxpa001mw?pUsuario=522222&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    }
+    ,
+    {
+      "name": "Cuentas x pagar",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:4200/auth/admcxpa004mw/admcxpa004mw?pUsuario=522222&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    }
+    ,
+    {
+      "name": "Directorio",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:4200/auth/serinfo002mw/serinfo002mw",
+      "webRoot": "${workspaceFolder}"
+    }
+    ,
+    {
+      "name": "usuarios",
+      "request": "launch",
+      "type": "firefox",
+      "url": "http://localhost:4200/auth/serinfo002mw/usuarios?pUsuario=522222&pZona=01",
+      "webRoot": "${workspaceFolder}"
+    }
+  ]
+}
